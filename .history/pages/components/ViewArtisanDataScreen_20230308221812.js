@@ -172,7 +172,7 @@ function ViewArtisanDataScreen() {
     axios
       .get(url)
       .then((response) => {
-        setArtisans(response.data.reverse());
+        setArtisans(response.data);
         console.log(response.data);
       })
       .catch((error) => {

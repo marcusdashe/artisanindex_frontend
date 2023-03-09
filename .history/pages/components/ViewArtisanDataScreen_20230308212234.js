@@ -128,7 +128,6 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FileSaver from "file-saver";
 import ArtisanTable from "./ArtisanTable";
 
 function ViewArtisanDataScreen() {
@@ -172,40 +171,19 @@ function ViewArtisanDataScreen() {
     axios
       .get(url)
       .then((response) => {
-        setArtisans(response.data.reverse());
-        console.log(response.data);
+        setArtisans(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
   }
-
-  function downloadArtisan() {
-    const url =
-      selectedValue &&
-      searchInput &&
-      `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/spreadsheet/search?search=${searchInput}&filter=${selectedValue}`;
-
-    axios
-      .get(url, { responseType: "blob" })
-      .then((response) => {
-        let file = new Blob([response.data], {
-          type: "application/vnd.ms-excel",
-        });
-        FileSaver.saveAs(file, "filteredartisans.xlsx");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-  const handleClick = () => {
-    downloadArtisan();
-  };
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="w-full h-[10vh] bg-slate-900 flex items-center content-center justify-start text-white p-5">
+      <div
+        className="w-full h-[10vh] bg-slate-900 flex items-center content-center
+justify-center text-white text-4xl font-bold"
+      >
         View Artisan Data
       </div>
       <div className="w-full h-[10vh] bg-white flex items-center justify-center">
@@ -237,17 +215,14 @@ function ViewArtisanDataScreen() {
           >
             Search
           </button>
-          <div className="flex flex-row fixed right-8">
+          <div>
             <button
               className="p-2 bg-[#8D161A] text-white rounded-md ml-2"
               onClick={printPage}
             >
               Print
             </button>
-            <button
-              onClick={handleClick}
-              className="p-2 bg-[#8D161A] text-white rounded-md ml-2 w-[100px]"
-            >
+            <button className="p-2 bg-[#8D161A] text-white rounded-md ml-2 w-[100px]">
               Download
             </button>
           </div>

@@ -2,7 +2,6 @@ import React from "react";
 import UploadFileScreen from "../components/UploadFileScreen";
 import DownloadDataScreen from "../components/DownloadDataScreen";
 import ViewArtisanDataScreen from "../components/ViewArtisanDataScreen";
-import CreateArtisan from "../components/CreateArtisan";
 import Image from "next/image";
 
 const actions = [
@@ -74,9 +73,7 @@ function dashboard() {
                 <ViewArtisanDataScreen />
               </>
             ) : (
-              <>
-                <CreateArtisan />
-              </>
+              <></>
             )}
           </>
         )}

@@ -143,6 +143,7 @@ function ViewArtisanDataScreen() {
     { value: "gender", label: "Gender" },
     { value: "fullname", label: "Name" },
     { value: "city", label: "City" },
+    { value: "programme", label: "Programme" },
   ];
 
   const fetchAllArtisanEndpoint = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/all`;

@@ -172,8 +172,7 @@ function ViewArtisanDataScreen() {
     axios
       .get(url)
       .then((response) => {
-        setArtisans(response.data.reverse());
-        console.log(response.data);
+        setArtisans(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -205,7 +204,10 @@ function ViewArtisanDataScreen() {
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="w-full h-[10vh] bg-slate-900 flex items-center content-center justify-start text-white p-5">
+      <div
+        className="w-full h-[10vh] bg-slate-900 flex items-center content-center
+justify-center text-white text-4xl font-bold"
+      >
         View Artisan Data
       </div>
       <div className="w-full h-[10vh] bg-white flex items-center justify-center">

@@ -29,6 +29,9 @@ const ArtisanTable = ({ artisans }) => {
           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Programme
           </th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Created
+          </th>
         </tr>
       </thead>
       <tbody className="bg-white divide-y divide-gray-200">
@@ -41,12 +44,10 @@ const ArtisanTable = ({ artisans }) => {
             <td className="px-6 py-4 whitespace-nowrap">{item.phoneNumber}</td>
             <td className="px-6 py-4 whitespace-nowrap">{item.city}</td>
             <td className="px-6 py-4 whitespace-nowrap">{item.state}</td>
+            <td className="px-6 py-4 whitespace-nowrap">{item.programme}</td>
             <td className="px-6 py-4 whitespace-nowrap">
-              {item.programme ? item.programme.slice(0, -1) : item.programme}
-            </td>
-            {/* <td className="px-6 py-4 whitespace-nowrap">
               {new Date(item.created).toUTCString().substring(0, 16)}
-            </td> */}
+            </td>
           </tr>
         ))}
       </tbody>

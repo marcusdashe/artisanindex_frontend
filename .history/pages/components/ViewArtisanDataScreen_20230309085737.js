@@ -172,7 +172,7 @@ function ViewArtisanDataScreen() {
     axios
       .get(url)
       .then((response) => {
-        setArtisans(response.data.reverse());
+        setArtisans(response.data);
         console.log(response.data);
       })
       .catch((error) => {
@@ -254,7 +254,7 @@ function ViewArtisanDataScreen() {
         </div>
       </div>
       <div className="w-full h-[80vh] overflow-scroll">
-        <ArtisanTable artisans={artisans} />
+        <ArtisanTable artisans={artisans.reverse()} />
       </div>
     </div>
   );

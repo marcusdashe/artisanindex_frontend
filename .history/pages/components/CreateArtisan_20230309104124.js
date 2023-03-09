@@ -208,54 +208,7 @@ function ViewArtisanDataScreen() {
       <div className="w-full h-[10vh] bg-slate-900 flex items-center content-center justify-start text-white p-5">
         View Artisan Data
       </div>
-      <div className="w-full h-[10vh] bg-white flex items-center justify-center">
-        <div className="w-[80%] md:w-[60%] lg:w-[40%] flex items-center justify-between">
-          <select
-            className="w-full p-2 border rounded-md border-gray-300"
-            onChange={handleSelectChange}
-            value={selectedValue}
-          >
-            <option value="" disabled selected>
-              Filter By
-            </option>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <input
-            className="w-full p-2 border rounded-md border-gray-300 ml-2"
-            type="text"
-            placeholder="Search"
-            value={searchInput}
-            onChange={handleSearchInputChange}
-          />
-          <button
-            className="p-2 bg-[#8D161A] text-white rounded-md ml-2"
-            onClick={fetchData}
-          >
-            Search
-          </button>
-          <div className="flex flex-row fixed right-8">
-            <button
-              className="p-2 bg-[#8D161A] text-white rounded-md ml-2"
-              onClick={printPage}
-            >
-              Print
-            </button>
-            <button
-              onClick={handleClick}
-              className="p-2 bg-[#8D161A] text-white rounded-md ml-2 w-[100px]"
-            >
-              Download
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="w-full h-[80vh] overflow-scroll">
-        <ArtisanTable artisans={artisans} />
-      </div>
+      <div className="w-full h-[10vh] bg-white flex items-center justify-center"></div>
     </div>
   );
 }
