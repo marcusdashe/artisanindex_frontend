@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 import { useEffect } from "react";
 import { useRouter } from "next/router";
@@ -28,7 +29,7 @@ export default function Home() {
         variants={stagger}
         className="flex items-center"
       >
-        <motion.div variants={fadeInUp} className="w-full h-40  bg-white mr-4">
+        <motion.div variants={fadeInUp} className="w-20 h-20  bg-white mr-4">
           <Image
             src="/assets/logo.png"
             alt="Logo"

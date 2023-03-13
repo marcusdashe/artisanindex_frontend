@@ -37,10 +37,10 @@ function ViewArtisanDataScreen() {
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="w-full h-[10vh] bg-[#e4decd] font-bold flex items-center content-center justify-start text-[#8D161A] p-5">
+      <div className="w-full h-[10vh] bg-slate-900 flex items-center content-center justify-start text-white p-5">
         Create Artisan Record
       </div>
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 bg-white flex items-center justify-center">
         <div className="max-w-lg w-full px-5 py-8">
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-2">
             <label htmlFor="fullName" className="text-gray-700 font-bold">
@@ -188,7 +188,7 @@ function ViewArtisanDataScreen() {
               name="batchYear"
               value={formData.batchYear}
               onChange={handleInputChange}
-              placeholder="Enter Batch or Year as appropriately applicable"
+              placeholder="Enter your Batch or Year"
               className="px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-[#4a3e3e] focus:shadow-outline-blue"
               required
             />

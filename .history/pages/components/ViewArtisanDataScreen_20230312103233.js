@@ -18,7 +18,7 @@ function ViewArtisanDataScreen() {
     { value: "programme", label: "Programme" },
   ];
 
-  const fetchAllArtisansEndpoint = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/all`;
+  const fetchAllArtisanEndpoint = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/all`;
 
   useEffect(() => {
     fetchData();
@@ -40,7 +40,7 @@ function ViewArtisanDataScreen() {
     const url =
       selectedValue && searchInput
         ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/search?search=${searchInput}&filter=${selectedValue}`
-        : fetchAllArtisansEndpoint;
+        : fetchAllArtisanEndpoint;
 
     axios
       .get(url)
@@ -78,7 +78,7 @@ function ViewArtisanDataScreen() {
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="w-full h-[10vh] bg-[#e4decd] font-bold flex items-center content-center justify-start text-[#8D161A] p-5">
+      <div className="w-full h-[10vh] bg-slate-900 flex items-center content-center justify-start text-white p-5">
         View Artisan Data
       </div>
       <div className="w-full h-[10vh] bg-white flex items-center justify-center">

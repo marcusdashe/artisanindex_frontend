@@ -24,7 +24,7 @@ function DownloadDataScreen() {
         <h1>Download Artisan Data</h1>
       </div>
       <div className="w-full h-[90vh] p-4">
-        <div className="w-[100%] rounded-md p-3  flex items-center flex-col">
+        <div className="w-[50%] rounded-md p-3 flex items-center flex-col">
           <button
             onClick={handleClick}
             type="submit"

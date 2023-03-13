@@ -20,11 +20,11 @@ function DownloadDataScreen() {
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="w-full h-[10vh] bg-[#e4decd] font-bold flex items-center content-center justify-start text-[#8D161A] p-5">
+      <div className="w-full h-[10vh] bg-[#e4decd] flex items-center content-center justify-start text-[#8D161A] p-5">
         <h1>Download Artisan Data</h1>
       </div>
       <div className="w-full h-[90vh] p-4">
-        <div className="w-[100%] rounded-md p-3  flex items-center flex-col">
+        <div className="w-full rounded-md p-3 bg-slate-200 flex flex-col">
           <button
             onClick={handleClick}
             type="submit"

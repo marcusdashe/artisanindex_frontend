@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
 const instance = axios.create({

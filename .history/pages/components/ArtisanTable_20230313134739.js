@@ -1,9 +1,6 @@
 import React from "react";
 
 const ArtisanTable = ({ artisans }) => {
-  if (!artisans || !Array.isArray(artisans)) {
-    return null; // or render an error message
-  }
   return (
     <table className="min-w-full divide-y divide-gray-200 mt-3">
       <thead className="bg-gray-50">
@@ -56,9 +53,6 @@ const ArtisanTable = ({ artisans }) => {
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
               {item.batch ? "Batch " + item.batch : item.year}
-              {item.programmes && Array.isArray(item.programmes)
-                ? item.programmes[0].batch
-                : ""}
             </td>
           </tr>
         ))}

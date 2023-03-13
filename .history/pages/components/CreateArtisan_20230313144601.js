@@ -40,7 +40,7 @@ function ViewArtisanDataScreen() {
       <div className="w-full h-[10vh] bg-[#e4decd] font-bold flex items-center content-center justify-start text-[#8D161A] p-5">
         Create Artisan Record
       </div>
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 bg-white flex items-center justify-center">
         <div className="max-w-lg w-full px-5 py-8">
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-2">
             <label htmlFor="fullName" className="text-gray-700 font-bold">

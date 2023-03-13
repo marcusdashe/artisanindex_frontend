@@ -3,6 +3,7 @@ import UploadFileScreen from "../components/UploadFileScreen";
 import DownloadDataScreen from "../components/DownloadDataScreen";
 import ViewArtisanDataScreen from "../components/ViewArtisanDataScreen";
 import CreateArtisan from "../components/CreateArtisan";
+import Image from "next/image";
 
 const actions = [
   {
@@ -28,9 +29,9 @@ function dashboard() {
 
   return (
     <div className="w-full min-h-[100vh] bg-slate-100 flex">
-      <div className="w-1/6 text-white flex flex-col">
-        <div className="w-full flex p-6 bg-white items-center content-center justify-start">
-          <img
+      <div className="w-1/6 min-h-full bg-slate-900 text-white flex flex-col">
+        <div className="w-full flex p-3 bg-white items-center content-center justify-start">
+          <Image
             src="/assets/logo.png"
             width={50}
             height={50}

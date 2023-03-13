@@ -9,10 +9,6 @@ const nextConfig = {
     // Set the output value to "standalone"
     output: "standalone",
   },
-  images: {
-    // Set images.unoptimized to true
-    unoptimized: true,
-  },
 };
 
 module.exports = nextConfig;

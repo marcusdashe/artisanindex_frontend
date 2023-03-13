@@ -78,7 +78,7 @@ function ViewArtisanDataScreen() {
 
   return (
     <div className="w-full h-[100vh]">
-      <div className="w-full h-[10vh] bg-[#e4decd] font-bold flex items-center content-center justify-start text-[#8D161A] p-5">
+      <div className="w-full h-[10vh] bg-[#e4decd] flex items-center content-center justify-start text-white p-5">
         View Artisan Data
       </div>
       <div className="w-full h-[10vh] bg-white flex items-center justify-center">

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
 const instance = axios.create({
@@ -48,8 +49,8 @@ function UploadFileScreen() {
 
   return (
     <>
-      <div className="w-full h-[10vh] text-[#8D161A] font-bold bg-[#e4decd] flex items-center content-center justify-between p-3">
-        <h1>Upload Artisan Data</h1>
+      <div className="w-full h-[10vh] text-[#8D161A] bg-[#e4decd] flex items-center content-center justify-between p-3">
+        <h1 className="text-white">Upload Artisan Data</h1>
       </div>
       <div className="h-[90vh] w-full p-3 flex flex-col">
         <form
@@ -67,7 +68,7 @@ function UploadFileScreen() {
             }}
           />
           <button
-            className="cursor-pointer bg-[#8D161A] text-white p-2 pl-3 pr-3 rounded-md font-medium text-sm"
+            className="cursor-pointer bg-[#e4decd] text-[#8D161A] p-2 pl-3 pr-3 rounded-md font-medium text-sm"
             type="submit"
           >
             Upload File(s)

@@ -1,9 +1,6 @@
 import React from "react";
 
 const ArtisanTable = ({ artisans }) => {
-  if (!artisans || !Array.isArray(artisans)) {
-    return null; // or render an error message
-  }
   return (
     <table className="min-w-full divide-y divide-gray-200 mt-3">
       <thead className="bg-gray-50">
@@ -32,10 +29,6 @@ const ArtisanTable = ({ artisans }) => {
           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
             Programme
           </th>
-
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Batch/Year
-          </th>
         </tr>
       </thead>
       <tbody className="bg-white divide-y divide-gray-200">
@@ -49,17 +42,12 @@ const ArtisanTable = ({ artisans }) => {
             <td className="px-6 py-4 whitespace-nowrap">{item.city}</td>
             <td className="px-6 py-4 whitespace-nowrap">{item.state}</td>
             <td className="px-6 py-4 whitespace-nowrap">
-              {item.programmes && Array.isArray(item.programmes)
-                ? item.programmes[0].title
-                : ""}
-              {item.programme ? item.programme.slice(0, -1) : item.programme}
+              {item.programme ? item.programme.slice(0, -1) : item.programme}{" "}
+              {item.batch ? item.batch : item.year}
             </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              {item.batch ? "Batch " + item.batch : item.year}
-              {item.programmes && Array.isArray(item.programmes)
-                ? item.programmes[0].batch
-                : ""}
-            </td>
+            {/* <td className="px-6 py-4 whitespace-nowrap">
+              {new Date(item.created).toUTCString().substring(0, 16)}
+            </td> */}
           </tr>
         ))}
       </tbody>
