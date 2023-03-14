@@ -2,17 +2,17 @@ import React from "react";
 import axios from "axios";
 import "@reach/dialog/styles.css";
 
+const instance = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/upload-spreadsheet`,
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
+});
+
 function UploadFileScreen() {
   const [files, setFiles] = React.useState([]);
   const [feedback, setFeedack] = React.useState("");
   const [isSuccessful, setIsSuccessful] = React.useState(false);
-
-  const instance = axios.create({
-    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}`,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
 
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
@@ -22,26 +22,28 @@ function UploadFileScreen() {
     setFiles(newFiles);
   };
 
-  const callHandleFileUpload = (e) => {
-    e.preventDefault();
+  const instance = axios.create({
+    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/`,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  const callHandleFileUpload = () =>
     files.map((file) => handleFileUpload(file));
-  };
 
   const handleFileUpload = async (file) => {
     try {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await instance.post(
-        "/api/artisan/upload-spreadsheet",
-        formData
-      );
-
-      console.log(response.data);
+      const response = await instance.post("/upload-spreadsheet", formData);
+      window.alert("Uploaded Successfully");
+      open();
+      alert("Bulk Upload is Successful");
     } catch (error) {
       setFeedack(error);
     }
-    window.alert("Uploaded Successfully");
   };
 
   return (
@@ -51,7 +53,7 @@ function UploadFileScreen() {
       </div>
       <div className="h-[90vh] w-full p-3 flex flex-col">
         <form
-          onSubmit={callHandleFileUpload}
+          onSubmit={(e) => callHandleFileUpload()}
           className="w-full h-[7vh] bg-slate-200 rounded-md p-4 flex items-center content-center justify-between"
         >
           <input

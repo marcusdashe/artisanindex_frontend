@@ -8,7 +8,7 @@ function UploadFileScreen() {
   const [isSuccessful, setIsSuccessful] = React.useState(false);
 
   const instance = axios.create({
-    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}`,
+    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/upload-spreadsheet`,
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -32,16 +32,13 @@ function UploadFileScreen() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await instance.post(
-        "/api/artisan/upload-spreadsheet",
-        formData
-      );
-
+      const response = await instance.post("/upload-spreadsheet", formData);
+      window.alert("Uploaded Successfully");
+      open();
       console.log(response.data);
     } catch (error) {
       setFeedack(error);
     }
-    window.alert("Uploaded Successfully");
   };
 
   return (

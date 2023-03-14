@@ -38,6 +38,7 @@ function UploadFileScreen() {
       );
 
       console.log(response.data);
+      alert("Bulk Upload is Successful");
     } catch (error) {
       setFeedack(error);
     }

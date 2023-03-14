@@ -7,13 +7,6 @@ function UploadFileScreen() {
   const [feedback, setFeedack] = React.useState("");
   const [isSuccessful, setIsSuccessful] = React.useState(false);
 
-  const instance = axios.create({
-    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}`,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
-
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
 
@@ -27,22 +20,55 @@ function UploadFileScreen() {
     files.map((file) => handleFileUpload(file));
   };
 
+  const headers = new Headers();
+  headers.set(
+    "Content-Type",
+    "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW"
+  );
+
   const handleFileUpload = async (file) => {
     try {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await instance.post(
-        "/api/artisan/upload-spreadsheet",
-        formData
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/upload-spreadsheet`,
+        {
+          method: "POST",
+          body: formData,
+          headers: headers,
+        }
       );
+      const data = await response.json();
 
-      console.log(response.data);
+      open();
+      console.log(data.data);
     } catch (error) {
       setFeedack(error);
     }
     window.alert("Uploaded Successfully");
   };
+
+  //  const handleFileUpload = async (file) => {
+  //    try {
+  //      const formData = new FormData();
+  //      formData.append("file", file);
+
+  //      const response = await instance.post("/upload-spreadsheet", formData);
+  //      window.alert("Uploaded Successfully");
+  //      open();
+  //      console.log(response.data);
+  //    } catch (error) {
+  //      setFeedack(error);
+  //    }
+  //  };
+
+  // const instance = axios.create({
+  //   baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/upload-spreadsheet`,
+  //   headers: {
+  //     "Content-Type": "multipart/form-data",
+  //   },
+  // });
 
   return (
     <>
@@ -53,6 +79,8 @@ function UploadFileScreen() {
         <form
           onSubmit={callHandleFileUpload}
           className="w-full h-[7vh] bg-slate-200 rounded-md p-4 flex items-center content-center justify-between"
+          method="post"
+          encType="multipart/form-data"
         >
           <input
             type="file"

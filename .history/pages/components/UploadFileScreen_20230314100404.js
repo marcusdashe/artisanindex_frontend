@@ -22,6 +22,13 @@ function UploadFileScreen() {
     setFiles(newFiles);
   };
 
+  // const instance = axios.create({
+  //   baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}api/artisan/`,
+  //   headers: {
+  //     "Content-Type": "multipart/form-data",
+  //   },
+  // });
+
   const callHandleFileUpload = (e) => {
     e.preventDefault();
     files.map((file) => handleFileUpload(file));
@@ -37,7 +44,9 @@ function UploadFileScreen() {
         formData
       );
 
+      open();
       console.log(response.data);
+      alert("Bulk Upload is Successful");
     } catch (error) {
       setFeedack(error);
     }
