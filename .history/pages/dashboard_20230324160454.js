@@ -53,7 +53,7 @@ function dashboard() {
           })}
         </div>
       </div>
-      <div className="w-5/6 min-h-[100vh]">
+      <div className="w-5/6 h-[100vh]">
         {action === undefined ? (
           <>
             <h1>Please Select an Action</h1>

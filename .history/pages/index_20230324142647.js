@@ -21,7 +21,7 @@ export default function Home() {
   }, [router]);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-[#3b302f]">
+    <div className="flex flex-col justify-center items-center h-screen bg-[#f5f5dc]">
       <motion.div
         initial="initial"
         animate="animate"
@@ -30,7 +30,7 @@ export default function Home() {
       >
         <motion.div variants={fadeInUp} className="w-full h-40 mr-4">
           <img src="/assets/logo.png" alt="Logo" width={80} height={80} />
-          <motion.h1 variants={fadeInUp} className="text-white text-4xl mt-5">
+          <motion.h1 variants={fadeInUp} className="text-black text-3xl mt-5">
             C-STEMP Artisans Information Repository
           </motion.h1>
         </motion.div>

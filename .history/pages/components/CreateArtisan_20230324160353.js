@@ -32,12 +32,12 @@ function ViewArtisanDataScreen() {
         setFeedack(response.data.message);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full outline">
       <div className="w-full h-[10vh] bg-[#3b302f]  font-bold flex items-center content-center justify-start text-white p-5">
         Create Artisan Record
       </div>

@@ -22,7 +22,7 @@ function UploadFileScreen() {
     e.preventDefault();
     try {
       await Promise.all(files.map((file) => handleFileUpload(file)));
-      window.alert("Artisans Spreadsheet Uploaded Successfully");
+      window.alert("Uploaded Successfully");
     } catch (error) {
       setFeedback(error.message);
     }
@@ -99,6 +99,7 @@ function UploadFileScreen() {
           </>
         )}
       </div>
+
       <p className="mt-4">{feedback}</p>
     </>
   );

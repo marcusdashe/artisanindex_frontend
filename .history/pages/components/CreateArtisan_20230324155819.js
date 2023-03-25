@@ -32,13 +32,13 @@ function ViewArtisanDataScreen() {
         setFeedack(response.data.message);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
   };
 
   return (
-    <div className="w-full">
-      <div className="w-full h-[10vh] bg-[#3b302f]  font-bold flex items-center content-center justify-start text-white p-5">
+    <div className="w-full h-[100vh]">
+      <div className="w-full h-[10vh] bg-[#e4decd] font-bold flex items-center content-center justify-start text-[#8D161A] p-5">
         Create Artisan Record
       </div>
       <div className="flex-1 flex items-center justify-center">
@@ -181,29 +181,15 @@ function ViewArtisanDataScreen() {
             />
 
             <label htmlFor="programme" className="text-gray-700 font-bold">
-              Batch
+              Batch/Year
             </label>
             <input
               type="text"
-              id="batch"
-              name="batch"
-              value={formData.batch}
+              id="batchYear"
+              name="batchYear"
+              value={formData.batchYear}
               onChange={handleInputChange}
-              placeholder="Enter your batch"
-              className="px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-[#4a3e3e] focus:shadow-outline-blue"
-              required
-            />
-
-            <label htmlFor="programme" className="text-gray-700 font-bold">
-              Year
-            </label>
-            <input
-              type="text"
-              id="year"
-              name="year"
-              value={formData.year}
-              onChange={handleInputChange}
-              placeholder="Enter your year"
+              placeholder="Enter Batch or Year as appropriately applicable"
               className="px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-[#4a3e3e] focus:shadow-outline-blue"
               required
             />

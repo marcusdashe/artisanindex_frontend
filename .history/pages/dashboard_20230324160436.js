@@ -27,7 +27,7 @@ function dashboard() {
   const [action, setAction] = React.useState("Upload");
 
   return (
-    <div className="w-full outline bg-slate-100 flex">
+    <div className="w-full bg-slate-100 flex">
       <div className="w-1/6 text-white flex flex-col">
         <div className="w-full flex p-6 bg-white items-center content-center justify-start">
           <img
@@ -53,7 +53,7 @@ function dashboard() {
           })}
         </div>
       </div>
-      <div className="w-5/6 min-h-[100vh]">
+      <div className="w-5/6 h-[100vh]">
         {action === undefined ? (
           <>
             <h1>Please Select an Action</h1>

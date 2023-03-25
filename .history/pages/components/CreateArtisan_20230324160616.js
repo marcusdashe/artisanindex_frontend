@@ -32,7 +32,7 @@ function ViewArtisanDataScreen() {
         setFeedack(response.data.message);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       });
   };
 

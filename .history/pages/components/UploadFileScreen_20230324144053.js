@@ -4,7 +4,8 @@ import "@reach/dialog/styles.css";
 
 function UploadFileScreen() {
   const [files, setFiles] = React.useState([]);
-  const [feedback, setFeedback] = React.useState("");
+  const [feedback, setFeedack] = React.useState("");
+  const [isSuccessful, setIsSuccessful] = React.useState(false);
 
   const instance = axios.create({
     baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}`,
@@ -13,19 +14,17 @@ function UploadFileScreen() {
     },
   });
 
+  const open = () => setShowDialog(true);
+  const close = () => setShowDialog(false);
+
   const handleFileChange = (e) => {
     const newFiles = Array.from(e);
     setFiles(newFiles);
   };
 
-  const callHandleFileUpload = async (e) => {
+  const callHandleFileUpload = (e) => {
     e.preventDefault();
-    try {
-      await Promise.all(files.map((file) => handleFileUpload(file)));
-      window.alert("Artisans Spreadsheet Uploaded Successfully");
-    } catch (error) {
-      setFeedback(error.message);
-    }
+    files.map((file) => handleFileUpload(file));
   };
 
   const handleFileUpload = async (file) => {
@@ -37,16 +36,18 @@ function UploadFileScreen() {
         "/api/artisan/upload-spreadsheet",
         formData
       );
+
       console.log(response.data);
     } catch (error) {
-      setFeedback(error.message);
+      setFeedack(error);
     }
+    window.alert("Uploaded Successfully");
   };
 
   return (
     <>
-      <div className="w-full h-[10vh] font-bold bg-[#3b302f] flex items-center content-center justify-between p-3">
-        <h1 className="text-white">Upload Artisan Data</h1>
+      <div className="w-full h-[10vh] text-[#8D161A] font-bold bg-[#3b302f] flex items-center content-center justify-between p-3">
+        <h1>Upload Artisan Data</h1>
       </div>
       <div className="h-[90vh] w-full p-3 flex flex-col">
         <form
@@ -99,6 +100,7 @@ function UploadFileScreen() {
           </>
         )}
       </div>
+
       <p className="mt-4">{feedback}</p>
     </>
   );

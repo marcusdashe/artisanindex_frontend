@@ -4,7 +4,7 @@ import "@reach/dialog/styles.css";
 
 function UploadFileScreen() {
   const [files, setFiles] = React.useState([]);
-  const [feedback, setFeedback] = React.useState("");
+  const [feedback, setFeedack] = React.useState("");
 
   const instance = axios.create({
     baseURL: `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}`,
@@ -15,17 +15,12 @@ function UploadFileScreen() {
 
   const handleFileChange = (e) => {
     const newFiles = Array.from(e);
-    setFiles(newFiles);
+    setFiles([...newFiles]);
   };
 
-  const callHandleFileUpload = async (e) => {
+  const callHandleFileUpload = (e) => {
     e.preventDefault();
-    try {
-      await Promise.all(files.map((file) => handleFileUpload(file)));
-      window.alert("Artisans Spreadsheet Uploaded Successfully");
-    } catch (error) {
-      setFeedback(error.message);
-    }
+    files.map((file) => handleFileUpload(file));
   };
 
   const handleFileUpload = async (file) => {
@@ -39,8 +34,9 @@ function UploadFileScreen() {
       );
       console.log(response.data);
     } catch (error) {
-      setFeedback(error.message);
+      setFeedack(error.message);
     }
+    window.alert("Uploaded Successfully");
   };
 
   return (
@@ -99,6 +95,7 @@ function UploadFileScreen() {
           </>
         )}
       </div>
+
       <p className="mt-4">{feedback}</p>
     </>
   );

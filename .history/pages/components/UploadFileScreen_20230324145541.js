@@ -14,7 +14,7 @@ function UploadFileScreen() {
   });
 
   const handleFileChange = (e) => {
-    const newFiles = Array.from(e);
+    const newFiles = Array.from(e.target.files);
     setFiles(newFiles);
   };
 
@@ -22,7 +22,7 @@ function UploadFileScreen() {
     e.preventDefault();
     try {
       await Promise.all(files.map((file) => handleFileUpload(file)));
-      window.alert("Artisans Spreadsheet Uploaded Successfully");
+      window.alert("Uploaded Successfully");
     } catch (error) {
       setFeedback(error.message);
     }
@@ -41,6 +41,7 @@ function UploadFileScreen() {
     } catch (error) {
       setFeedback(error.message);
     }
+    window.alert("Uploaded Successfully");
   };
 
   return (
@@ -99,6 +100,7 @@ function UploadFileScreen() {
           </>
         )}
       </div>
+
       <p className="mt-4">{feedback}</p>
     </>
   );

@@ -45,7 +45,9 @@ export default function Login() {
         alt="logo"
         className="object-scale-down h-50 w-20 ml-10 mt-1 mb-10"
       />
-      <h3 className="text-3xl mb-[70px]">Artisans Information Repository</h3>
+      <h3 className="text-3xl font-bold mb-[70px]">
+        Artisans Information Repository
+      </h3>
 
       <div className="flex flex-col items-center justify-center bg-white shadow-md rounded-lg p-8">
         <h1 className="text-2xl text-left w-full font-bold mb-8">

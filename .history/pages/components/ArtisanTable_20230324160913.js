@@ -55,9 +55,7 @@ const ArtisanTable = ({ artisans }) => {
               {item.programme ? item.programme.slice(0, -1) : item.programme}
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
-              {item.year && item.year}
-              {"/"}
-              {item.batch && "Batch " + item.batch}
+              {item.batch ? "Batch " + item.batch : item.year}
               {item.programmes && Array.isArray(item.programmes)
                 ? item.programmes[0].batch
                 : ""}
